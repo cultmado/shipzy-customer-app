@@ -1,6 +1,7 @@
-describe('My First Test', () => {
-  it('Visits the app root url', () => {
-    cy.visit('/')
-    cy.contains('ion-content', 'Tab 1 page')
+describe('Login', () => {
+  it('shows the login form', () => {
+    cy.visit('/login')
+    cy.contains('h1', 'Login')
+    cy.contains('button', 'Log In')
   })
 })

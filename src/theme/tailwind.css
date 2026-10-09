@@ -1,0 +1,79 @@
+/* Ionic's stylesheets go in a low-priority layer; otherwise their unlayered
+   element rules (button, input, h1, p…) override Tailwind utilities. */
+@layer ionic, theme, base, components, utilities;
+
+@import "@ionic/vue/css/core.css" layer(ionic);
+@import "@ionic/vue/css/normalize.css" layer(ionic);
+@import "@ionic/vue/css/structure.css" layer(ionic);
+@import "@ionic/vue/css/typography.css" layer(ionic);
+@import "@ionic/vue/css/display.css" layer(ionic);
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Brand */
+  --color-brand: #085d85;          /* deep teal: nav, profile avatar, save buttons */
+  --color-brand-dark: #064a6a;
+  --color-brand-light: #e8f3f8;
+  --color-brand-green: #6eddaa;    /* logo bolt */
+
+  /* Action blue (primary CTAs, links, active states) */
+  --color-primary: #0b5fff;
+  --color-primary-dark: #0049d6;
+  --color-primary-light: #eff4fd;
+
+  /* Text */
+  --color-ink: #00093a;            /* headings / strong text */
+  --color-body: #334155;           /* regular copy */
+  --color-muted: #64748b;          /* secondary copy */
+  --color-placeholder: #94a3b8;
+
+  /* Surfaces */
+  --color-page: #f8fafd;
+  --color-line: #e2e8f0;
+
+  /* Service accents */
+  --color-pabili: #0b5fff;
+  --color-pabili-light: #eff4fd;
+  --color-parcel: #129947;
+  --color-parcel-light: #f0fcf4;
+  --color-vehicle: #fe8902;
+  --color-vehicle-light: #fff8eb;
+
+  /* Status */
+  --color-success: #129947;
+  --color-success-light: #e9f8ef;
+  --color-warning: #fe8902;
+  --color-warning-light: #fff4e5;
+  --color-danger: #ef4444;
+  --color-danger-light: #fef2f2;
+  --color-violet: #7c3aed;
+  --color-violet-light: #f3eefe;
+
+  --shadow-card: 0 1px 3px 0 rgb(15 23 42 / 0.06), 0 1px 2px -1px rgb(15 23 42 / 0.04);
+}
+
+@layer base {
+  html, body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+  }
+  input, select, textarea, button {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-white shadow-card;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
